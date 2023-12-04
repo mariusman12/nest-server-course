@@ -7,4 +7,7 @@ export class USerDto{
     @Expose()
     email:string;
 
+    @Expose()
+    admin:boolean
+
 }

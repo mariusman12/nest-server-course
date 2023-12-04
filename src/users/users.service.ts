@@ -47,4 +47,15 @@ export class UsersService {
         }
         return this.repo.remove(user)
     }
+
+
+    
+    async updateAdminStatus(id: number, attrs: Partial<User>){
+        const user = await this.findOne(id);
+        if (!user){
+            throw new NotFoundException('');
+        }
+        Object.assign(user,attrs)
+        return this.repo.save(user)
+    }
 }

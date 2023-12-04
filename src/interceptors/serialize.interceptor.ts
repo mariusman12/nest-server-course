@@ -33,7 +33,7 @@ export class SerializeInterceptor implements NestInterceptor{
             map((data:any) =>{
                 // Run something before the response is sent out
                     return plainToInstance(this.dto ,data, {
-                        excludeExtraneousValues:true, // se asigura ca totul merge comform 
+                        excludeExtraneousValues:true, // se asigura ca totul merge comform , practic trimite doar ce e in expose cu tag
                         //de fiecare data cand avem un userdto si inceacrca sa il faca in plain json
                         //o sa faca share sau sa arate doar specificatiile care sunt marcate de directive @Expose()
                         // deci daca sunt altele vor fi excluse

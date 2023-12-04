@@ -53,9 +53,7 @@ export class UsersController {
             const user = await this.authService.signup(body.email,body.password);
             session.userId = user.id;
             return user;
-
             }
-
 
     @Post ('/signout')
     signOut(@Session() session:any){
@@ -99,6 +97,11 @@ export class UsersController {
     }
 
 
+    @Patch('changeAdmin/:id')
+    updateUserAdmin(@Param('id') id:string, @Body() body:UpdateUserDto){
+      return this.usersService.updateAdminStatus(parseInt(id), body)
+  
+    }
 
 
 }
